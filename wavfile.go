@@ -1,9 +1,9 @@
 package lame
 
 import (
-	"io"
 	"encoding/binary"
 	"errors"
+	"io"
 )
 
 // WAV file spec reference:
@@ -15,7 +15,7 @@ type (
 	// The header of a common wav file, length=44B
 	WavHeader struct {
 		// RIFF Header
-		ChunkId   [4]byte // fixed "RIFF" or "RIFX" if the file is big-endian
+		ChunkId [4]byte // fixed "RIFF" or "RIFX" if the file is big-endian
 		WavHeaderRemaining
 	}
 
@@ -52,7 +52,7 @@ var (
 	chunkIdLe = [4]byte{'R', 'I', 'F', 'F'} // chunkId little-endian
 	chunkIdBe = [4]byte{'R', 'I', 'F', 'X'} // chunkId big-endian
 
-	format = [4]byte{'W', 'A', 'V', 'E'}
+	format      = [4]byte{'W', 'A', 'V', 'E'}
 	subChunk1Id = [4]byte{'f', 'm', 't', ' '}
 	subChunk2Id = [4]byte{'d', 'a', 't', 'a'}
 )
